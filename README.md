@@ -27,3 +27,6 @@ npm run migrate:up
 
 # Start server
 npm start
+
+# Run the API on swagger
+http://localhost:#port/docs
