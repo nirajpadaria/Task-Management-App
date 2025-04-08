@@ -863,6 +863,27 @@
           },
           "additionalProperties": false
         },
+        "errorResponse403": {
+          "type": "object",
+          "properties": {
+            "isSuccess": {
+              "type": "boolean",
+              "example": false
+            },
+            "message": {
+              "type": "string",
+              "example": "message"
+            },
+            "code": {
+              "type": "integer",
+              "example": "403"
+            },
+            "data": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
         "errorResponse500": {
           "type": "object",
           "properties": {
