@@ -1,0 +1,913 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Task Management API",
+      "contact": {},
+      "version": "v1"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3001"
+      }
+    ],
+    "paths": {
+      "/v1/auth/registration": {
+        "post": {
+          "tags": ["Auth"],
+          "summary": "Registration",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/registration"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/registration"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/registration"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Registration Successfully",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/auth/logIn": {
+        "post": {
+          "tags": ["Auth"],
+          "summary": "login",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/logIn"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/logIn"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/logIn"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "LogIn Successfully",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Email or password not match",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/auth/logOut": {
+        "post": {
+          "tags": ["Auth"],
+          "summary": "logOut",
+          "responses": {
+            "200": {
+              "description": "LogOut Successfully",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/tasks": {
+        "post": {
+          "tags": ["Task"],
+          "summary": "Create task",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createTask"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createTask"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createTask"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Task created Successfully",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+            "tags": ["Task"],
+            "summary": "Get all Task",
+            "parameters":[
+                {
+                    "name": "statusId",
+                    "description": "Get task acording there status",
+                    "required": false,
+                    "in": "query",
+                    "schema": {
+                        "type": "integer",
+                        "$ref": "#/components/schemas/taskStatusEnum"
+                    },
+                    "example": "1: Pending, 2: Completed"
+                }
+            ],
+            "responses": {
+              "200": {
+                "description": "Return a tasks",
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "$ref": "#/components/schemas/SuccessResponse"
+                    }
+                  },
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/SuccessResponse"
+                    }
+                  },
+                  "text/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/SuccessResponse"
+                    }
+                  }
+                }
+              },
+              "401": {
+                "description": "Token provided not found",
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "$ref": "#/components/schemas/errorResponse401"
+                    }
+                  },
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/errorResponse401"
+                    }
+                  },
+                  "text/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/errorResponse401"
+                    }
+                  }
+                }
+              },
+              "403": {
+                "description": "Failed to authentication",
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "$ref": "#/components/schemas/errorResponse403"
+                    }
+                  },
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/errorResponse403"
+                    }
+                  },
+                  "text/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/errorResponse403"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Something went wrong",
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "$ref": "#/components/schemas/errorResponse500"
+                    }
+                  },
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/errorResponse500"
+                    }
+                  },
+                  "text/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/errorResponse500"
+                    }
+                  }
+                }
+              }
+            }
+          }
+      },
+      "/v1/tasks/{id}": {
+        "get": {
+          "tags": ["Task"],
+          "summary": "Get Task by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of task",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Return a task",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Token provided not found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Failed to authentication",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse403"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse403"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse403"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": ["Task"],
+          "summary": "Update Task by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of task",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updateTask"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updateTask"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updateTask"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Token provided not found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Failed to authentication",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse403"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse403"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse403"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Task"],
+          "summary": "Delete Task by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of task",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Token provided not found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse401"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Failed to authentication",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse403"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse403"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse403"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "registration": {
+          "required": ["firstName", "lastName", "email", "password"],
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "string",
+              "description": "Enter the first name of user"
+            },"lastName": {
+              "type": "string",
+              "description": "Enter the last name of user"
+            },
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "Enter the email of user"
+            },
+            "password": {
+              "type": "string",
+              "format": "password",
+              "description": "Enter the password of user"
+            }
+          },
+          "example": {
+            "firstName": "Niraj",
+            "lastName": "Padaria",
+            "email": "niraj@gmail.com",
+            "password": "niraj@123"
+          },
+          "additionalProperties": false
+        },
+        "logIn": {
+            "required": ["email", "password"],
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string",
+                "format": "email",
+                "description": "Enter the email of user"
+              },
+              "password": {
+                "type": "string",
+                "format": "password",
+                "description": "Enter the Password of user"
+              }
+            },
+            "example": {
+              "email": "niraj@gmail.com",
+              "password": "niraj@123"
+            },
+            "additionalProperties": false
+        },
+        "createTask": {
+            "required": ["title"],
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Enter the title of task"
+              },"description": {
+                "type": "string",
+                "description": "Enter the description of task"
+              },
+              "dueDate": {
+                "type": "dateTime",
+                "description": "Enter the due date of task"
+              }
+            },
+            "example": {
+              "title": "title",
+              "description": "description",
+              "dueDate": "2025-04-07"
+            },
+            "additionalProperties": false
+        },
+        "updateTask": {
+            "required": ["title"],
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Enter the title of task"
+              },"description": {
+                "type": "string",
+                "description": "Enter the description of task"
+              },
+              "dueDate": {
+                "type": "dateTime",
+                "description": "Enter the due date of task"
+              },
+              "statusId": {
+                "type": "integer",
+                "description": "Enter the id of status"
+              }
+            },
+            "example": {
+              "title": "title",
+              "description": "description",
+              "dueDate": "2025-04-07",
+              "statusId": 1
+            },
+            "additionalProperties": false
+        },
+        "taskStatusEnum": {
+            "type": "integer",
+            "enum": [1, 2],
+            "required": false,
+            "additionalProperties": false
+          },
+        "SuccessResponse": {
+          "type": "object",
+          "properties": {
+            "isSuccess": {
+              "type": "boolean",
+              "example": true
+            },
+            "message": {
+              "type": "string",
+              "example": "message"
+            },
+            "code": {
+              "type": "integer",
+              "example": "200"
+            },
+            "data": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        "errorResponse400": {
+          "type": "object",
+          "properties": {
+            "isSuccess": {
+              "type": "boolean",
+              "example": false
+            },
+            "message": {
+              "type": "string",
+              "example": "message"
+            },
+            "code": {
+              "type": "integer",
+              "example": "400"
+            },
+            "data": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        "errorResponse401": {
+          "type": "object",
+          "properties": {
+            "isSuccess": {
+              "type": "boolean",
+              "example": false
+            },
+            "message": {
+              "type": "string",
+              "example": "message"
+            },
+            "code": {
+              "type": "integer",
+              "example": "401"
+            },
+            "data": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        "errorResponse500": {
+          "type": "object",
+          "properties": {
+            "isSuccess": {
+              "type": "boolean",
+              "example": false
+            },
+            "message": {
+              "type": "string",
+              "example": "Internal server error"
+            },
+            "code": {
+              "type": "integer",
+              "example": "500"
+            },
+            "data": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "securitySchemes": {
+        "ApiKeyAuth": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "authentication",
+          "description": "JWT Authorization header using the apiKeyAuth."
+        }
+      }
+    },
+    "security": [
+      {
+        "ApiKeyAuth": []
+      }
+    ],
+    "tags": [
+      {
+        "name": "Auth",
+        "description": "All Auth module apis"
+      },
+      {
+        "name": "Task",
+        "description": "All Task module apis"
+      }
+    ]
+  }
+  
